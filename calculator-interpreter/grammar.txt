@@ -1,0 +1,13 @@
+Expr        = Term TermTail
+TermTail    = '+' Term TermTail 
+            | '-' Term TermTail
+            | E
+Term        = Factor FactorTail
+FactorTail  = '*' Factor FactorTail 
+            | '/' Factor FactorTail
+            | E
+Factor      = '(' Expr ')' | Number
+Number      = '+' DIGIT NumberTail
+            | '-' DIGIT NumberTail
+            | DIGIT NumberTail
+NumberTail  = DIGIT NumberTail | E
